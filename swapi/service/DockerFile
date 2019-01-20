@@ -1,0 +1,13 @@
+FROM golang:latest
+
+LABEL name="iog320"
+
+WORKDIR $GOPATH/src/github.com/SCGroupX/SWAPI/service
+
+ADD . $GOPATH/
+
+RUN go build .
+
+EXPOSE 8080
+
+ENTRYPOINT  ["./service"]
